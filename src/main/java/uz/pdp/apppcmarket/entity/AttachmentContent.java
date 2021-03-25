@@ -9,20 +9,16 @@ import javax.persistence.*;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Entity(name = "userTable")
-public class User {
+@Entity
+public class AttachmentContent {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @Column(nullable = false)
-    private String fullName;
-
-    private String email;
-
-    private String password;
+    private byte[] bytes;
 
     @OneToOne
-    private Address address;
+    private Attachment attachment;
+
 }
